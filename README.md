@@ -5,5 +5,5 @@
 - After it's implementation the program should be able to determine with a good accuracy the evolution of a patients and the treatment they'll have to take.
 - If more data is added it's accuracy should increase.
 
-Backend specifics : - The backend is constructed with the Node, Express and MongoDB(non-relational database) stack with a REST                                   architecture
+Backend specific : - The backend is constructed with the Node, Express and MongoDB(non-relational database) stack with a REST                                  architecture
                     
