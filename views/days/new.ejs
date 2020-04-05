@@ -1,0 +1,58 @@
+<%-include("../partials/header")%>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 d-flex justify-content-center">
+			<h1>
+				Add Day
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form action="/patients/<%=patient._id%>/days" method="POST">
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="symptoms">Symptoms</label>
+					<input class="form-control" id="symptoms" type="text" name="day[symptoms]">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="imaging">Imaging</label>
+					<input class="form-control" id="imaging" type="text" name="day[imaging]">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="tests">Tests Done</label>
+					<input class="form-control" id="tests" type="text" name="day[tests]">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="bloodSampling">Blood sampling for</label>
+					<input class="form-control" id="bloodSampling" type="text" name="day[bloodSampling]">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="bodySecretions">Body secretions gathered</label>
+					<input class="form-control" id="bodySecretions" type="text" name="day[bodySecretions]">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="otherDiseases">Other diseases discovered</label>
+					<input class="form-control" id="otherDiseases" type="text" name="day[otherDiseases]">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="treatment">Treatment</label>
+					<textarea id="treatment" class="form-control" name="day[treatment]"></textarea>
+				</div>	
+			</div>
+			<div class="form-row">
+				<button class="btn btn-outline-primary">
+					Add
+				</button>	
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+<%-include("../partials/footer")%>

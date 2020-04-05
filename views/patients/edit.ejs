@@ -1,0 +1,151 @@
+<%- include("../partials/header")%>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 d-flex justify-content-center">
+			<h1>
+				Edit Patient
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form action="/patients/<%=patient._id%>?_method=PUT" method="POST">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="age">Age</label>
+					<input class="form-control" id="age" type="number" name="patient[age]" value="<%=patient.age%>">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="gender">Gender</label>
+					<select id="gender" class="form-control" name="patient[sex]">
+						<% if(patient.sex === "male"){%>
+							<option value="male" selected>Male</option>
+							<option value="female">Female</option>
+						<%}else{%>
+							<option value="male">Male</option>
+							<option value="female" selected>Female</option>
+						<%}%>
+					</select>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="dateOnsetSymptoms">Date-Onset-Symptoms</label>
+					<input id="dateOnsetSymptoms" type="date" class="form-control" name="patient[dateOnsetSymptoms]" value="<%=patient.dateOnsetSymptoms%>">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="dateAdmissionHospital">Date-Admission-Hospital</label>
+					<input id="dateAdmissionHospital", type="date" class="form-control" name="patient[dateAdmissionHospital]" value="<%=patient.dateAdmissionHospital%>">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="country">Country</label>
+					<input type="text" id="country" class="form-control" name="patient[country]" value="<%=patient.country%>">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="country">County</label>
+					<input type="text" id="county" class="form-control" name="patient[county]" value="<%=patient.county%>">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="country">City</label>
+					<input type="text" id="city" class="form-control" name="patient[city]" value="<%=patient.city%>">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="kg">Kg</label>
+					<input id="kg" type="number" class="form-control" name="patient[kg]" placeholder="What is the patient's weight ?" value="<%=patient.kg%>">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="height">Height</label>
+					<input id="height" type="number" class="form-control" name="patient[height]" placeholder="What is the patient's height ?" value="<%=patient.height%>">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="smoking">Smoking</label>
+					<select id="smoking"class="form-control" name="patient[smoking]">
+						<% if(patient.smoking === "True"){%>
+							<option value="True" selected>True</option>
+							<option value="False">False</option>
+						<%}else{%>
+							<option value="True">True</option>
+							<option value="False" selected>False</option>
+						<%}%>
+					</select>
+				</div>
+				<div class="form-group col-md-3">
+					<label for="alcohol">Alcohol Consumption</label>
+					<select id="alcohol"class="form-control" name="patient[alcohol]">
+						<% if(patient.alcohol === "True"){%>
+							<option value="True" selected>True</option>
+							<option value="False">False</option>
+						<%}else{%>
+							<option value="True">True</option>
+							<option value="False" selected>False</option>
+						<%}%>
+					</select>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-lg-12">
+					<label for="comorbidities" rows="20" cols="50">Comorbidities</label>
+					<textarea id="comorbidities" class="form-control" name="patient[comorbidities]" placeholder="Additional comorbidities, if there are any..."><%=patient.comorbidities%></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-lg-12">
+					<label for="covidTesting" rows="20" cols="50">Covid testing</label>
+					<textarea id="covidTesting" class="form-control" name="patient[covidTesting]" placeholder="Covid testing result..."><%=patient.covidTesting%></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for=additionalInfo>Additional information</label>
+					<textarea id="additionalInfo" class="form-control" name="patient[additionalInfo]" placeholder="Please add additional information if there is any..."><%=patient.additionalInfo%></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for=medicationTreatment>Medication and treatment</label>
+					<textarea id="medicationTreatment" class="form-control" name="patient[medicationTreatment]" placeholder="Pelase add the medication and treatment used on the patient"><%=patient.medicationTreatment%></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="autopsy">Autopsy if dead</label>
+					<textarea id="autopsy" class="form-control" name="patient[autopsy]" placeholder="Please add any autopsy data if patient has died..."><%=patient.autopsy%></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="outcome">Outcome</label>
+					<select id="outcome" class="form-control" name="patient[outcome]">
+						<% if(patient.outcome === "Alive"){%>
+							<option value="Alive" selected>Alive</option>
+							<option value="Currently under observation">Currently under observation</option>
+							<option value="Dead">Dead</option>
+						<%}else if(patient.outcome === "Currently under observation"){%>
+							<option value="Alive">Alive</option>
+							<option value="Currently under observation" selected>Currently under observation</option>
+							<option value="Dead">Dead</option>
+						<%}else{%>
+							<option value="Alive">Alive</option>
+							<option value="Currently under observation">Currently under observation</option>
+							<option value="Dead" selected>Dead</option>
+						<%}%>
+					</select>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-lg-12">
+					<input class="btn btn-primary"type="Submit" value="Submit">
+				</div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+
+<%- include("../partials/header")%>

@@ -1,0 +1,38 @@
+<%- include("../partials/header")%>
+
+<div class="container">
+	<div class ="row">
+		<div class="col-lg-12">
+			<h1 class="h1">
+				List of patients
+			</h1>
+		</div>
+	</div>
+	<%campgrounds.forEach(function(patient,index){%>
+		<div class="row">
+			<div class="col-lg-3 d-flex justify-content-center">
+				<h5>
+					<a class="badge badge-primary" href="/patients/<%=patient._id%>">Patient ID : <%=index+1%></a>
+				</h5>
+			</div>
+			<div class="col-lg-3 d-flex justify-content-center">
+				<h5>
+					Age : <%=patient.age%>
+				</h5>
+			</div>
+			<div class="col-lg-3 d-flex justify-content-center">
+				<h5>
+					Gender : <%=patient.sex%>
+				</h5>
+			</div>
+			<div class="col-lg-3 d-flex justify-content-center">
+				<h5>
+					City : <%=patient.city%>
+				</h5>
+			</div>
+		</div>
+		<hr>
+	<%})%>
+</div>
+
+<%- include("../partials/footer")%>

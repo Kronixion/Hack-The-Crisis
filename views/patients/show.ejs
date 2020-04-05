@@ -1,0 +1,214 @@
+<%- include("../partials/header")%>
+
+<div class="card">
+	<div class="card-body">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 d-flex justify-content-start">
+					<h3 class="card-title h3">
+						Additional Information about the patient !
+					</h3>
+				</div>
+				<div class="col-lg-6 d-flex justify-content-end">
+					<a class="btn btn-outline-primary" href="/patients/<%= patient._id%>/edit">
+						Edit
+					</a>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-3">
+					<p>
+						Age : <%= patient.age%>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Gender : <%= patient.sex%>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Date onset symptoms : <%= patient.dateOnsetSymptoms%>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Date admission hospital : <%=patient.dateAdmissionHospital%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-3">
+					<p>
+						Country : <%= patient.country%>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						County : <%= patient.county%>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						City : <%= patient.city%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				
+				<div class="col-md-3">
+					<p>
+						Weight : <%= patient.kg%>/kg
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Height : <%= patient.height%>/cm
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Smoking : <%= patient.smoking%>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<p>
+						Alcohol Consumption : <%= patient.alcohol%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class=col-lg-12>
+					<h6>Comorbidities : </h6>
+					<p>
+						<%= patient.comorbidities%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class=col-lg-12>
+					<h6>Additional information : </h6>
+					<p>
+						<%=patient.additionalInfo%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class=col-lg-12>
+					<h6>Medication and treatment : </h6>
+					<p>
+						<%=patient.medicationTreatment%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class=col-lg-12>
+					<h6>Covid testing : </h6>
+					<p>
+						<%=patient.covidTesting%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class=col-lg-12>
+					<h6>Autopsy details : </h6>
+					<p>
+						<%=patient.medicationTreatment%>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-lg-12">
+					<h6>Outcome : </h6>
+					<p>
+						<%=patient.outcome%>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<div class="container">
+			<div class=row>
+				<div class="col-lg-12">
+					<div class="d-flex justify-content-between additionalInfoMargin">
+						<h4>
+							Days 
+						</h4>
+						<a class="btn btn-outline-warning" href="/patients/<%=patient._id%>/days/new">
+							Add Day
+						</a>
+					</div>
+					<ul class="list-group list-group-flush">
+						<% patient.days.forEach(function(day,index){%>
+							<li class="list-group-item">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-12">
+											<h6>
+												Day : <%=index%>
+											</h6>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p>
+												Symptoms : <%=day.symptoms%>
+											</p>
+										</div>
+										<div class="col-md-4">
+											<p>
+												Imaging : <%=day.imaging%>
+											</p>
+										</div>
+										<div class="col-md-4">
+											<p>
+												Tests done : <%=day.tests%>
+											</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p>
+												Blood samples done : <%=day.bloodSampling%>
+											</p>
+										</div>
+										<div class="col-md-4">
+											<p>
+												Body secretions gathered : <%=day.bodySecretions%>
+											</p>
+										</div>
+										<div class="col-md-4">
+											<p>
+												Other diseases : <%=day.otherDiseases%>
+											</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<h6>Treatment :</h6>
+											<p>
+												<%= day.treatment%>
+											</p>
+										</div>
+									</div>
+								</div>
+							</li>	
+						<%})%>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer")%>

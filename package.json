@@ -1,0 +1,29 @@
+{
+  "name": "hack-the-crisis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kronixion/Hack-The-Crisis.git"
+  },
+  "author": "Rasiga Calin-Andrei and Dunca Delia-Denisa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kronixion/Hack-The-Crisis/issues"
+  },
+  "homepage": "https://github.com/Kronixion/Hack-The-Crisis#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1"
+  }
+}
